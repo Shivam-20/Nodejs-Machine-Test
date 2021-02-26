@@ -28,12 +28,12 @@ exports.getHightestScoreCandidate = async (req, res, next) => {
     });
   }
   let hSC = await eH.getHighestScore(examsData);
-  let condidateDetails = await Candidates.findOne({
+  let candidateDetails = await Candidates.findOne({
     _id: hSC.candidate,
   }).exec();
   let finalObject = {
-    user: condidateDetails.name,
-    email: condidateDetails.email,
+    user: candidateDetails.name,
+    email: candidateDetails.email,
     score: {
       first_round: hSC.first_round,
       second_round: hSC.second_round,

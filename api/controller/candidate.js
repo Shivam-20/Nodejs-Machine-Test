@@ -28,13 +28,13 @@ exports.addCandidate = async (req, res, next) => {
   }).exec();
 
   if (!selecteCandidate) {
-    const condidate = new Candidate(candidateData);
-    condidate
+    const candidate = new Candidate(candidateData);
+    candidate
       .save()
       .then((doc) => {
         res.status(201).json({
           status: "success",
-          message: "condidate added successful",
+          message: "candidate added successful",
           Data: doc,
         });
       })
